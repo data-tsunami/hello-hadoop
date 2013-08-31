@@ -109,6 +109,11 @@ To download the Hadoop sources or javadocs DOESN'T WORKS with Maven, so you'll h
  - Try other versions of Hadoop
  - Try debug of MR job from Eclipse
  - Try to find a way to attach Hadoop sources to Eclipse
+    + https://issues.apache.org/jira/browse/HADOOP-8363
+    + https://issues.apache.org/jira/browse/HADOOP-8498
+    + https://issues.apache.org/jira/browse/MAPREDUCE-4035
+    + http://stackoverflow.com/questions/12551977/repository-for-hadoop-stable-release-with-sources
+    + https://github.com/apache/hadoop-common/pull/8
 
 # License
 
