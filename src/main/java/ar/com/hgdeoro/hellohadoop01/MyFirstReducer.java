@@ -1,0 +1,24 @@
+package ar.com.hgdeoro.hellohadoop01;
+
+import java.io.IOException;
+import java.util.Iterator;
+
+import org.apache.hadoop.io.IntWritable;
+import org.apache.hadoop.io.Text;
+import org.apache.hadoop.mapreduce.Reducer;
+
+public class MyFirstReducer extends
+		Reducer<Text, IntWritable, Text, IntWritable> {
+
+	protected void reduce(Text key, Iterable<IntWritable> values,
+			Context context) throws IOException, InterruptedException {
+
+		int count = 0;
+		Iterator<IntWritable> iter = values.iterator();
+		for (count = 0; iter.hasNext(); count++)
+			iter.next();
+
+		context.write(key, new IntWritable(count));
+
+	}
+}
