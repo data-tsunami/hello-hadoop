@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="hello-hadoop" default="launch-local" basedir=".">
+
+	<description>
+		Launch LOCAL map reduce job
+	</description>
+
+	<property name="INPUT_FILE" value="/tmp/MYDATA.txt" />
+	<property name="OUTPUT_DIR" value="/tmp/OUTPUT" />
+
+	<target name="clean" description="Clean output directory">
+		<delete dir="${OUTPUT_DIR}" verbose="true" />
+	</target>
+
+	<target name="launch-local">
+		<exec executable="./hadoop-1.2.0/bin/hadoop">
+			<arg value="--config" />
+			<arg value="conf-local" />
+			<arg value="jar" />
+			<arg value="hello-hadoop-0.0.1-SNAPSHOT.jar" />
+			<arg value="ar.com.datatsunami.hellohadoop.Launcher" />
+			<arg value="file://${INPUT_FILE}" />
+			<arg value="file://${OUTPUT_DIR}" />
+		</exec>
+	</target>
+
+	<target name="clean-and-launch" depends="clean,launch-local" />
+
+</project>
