@@ -1,4 +1,4 @@
-package ar.com.hgdeoro.hellohadoop01;
+package ar.com.datatsunami.hellohadoop;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -8,6 +8,8 @@ import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mrunit.mapreduce.ReduceDriver;
 import org.junit.Test;
+
+import ar.com.datatsunami.hellohadoop.MyFirstReducer;
 
 public class SimpleReducerTest {
 

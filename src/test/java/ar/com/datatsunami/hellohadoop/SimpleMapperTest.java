@@ -1,4 +1,4 @@
-package ar.com.hgdeoro.hellohadoop01;
+package ar.com.datatsunami.hellohadoop;
 
 import java.io.IOException;
 
@@ -7,6 +7,8 @@ import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mrunit.mapreduce.MapDriver;
 import org.junit.Test;
+
+import ar.com.datatsunami.hellohadoop.MyFirstMapper;
 
 public class SimpleMapperTest {
 

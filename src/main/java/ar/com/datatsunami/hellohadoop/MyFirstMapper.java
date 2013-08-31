@@ -1,4 +1,4 @@
-package ar.com.hgdeoro.hellohadoop01;
+package ar.com.datatsunami.hellohadoop;
 
 import java.io.IOException;
 
