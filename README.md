@@ -162,6 +162,12 @@ To download the Hadoop sources or javadocs DOESN'T WORKS with Maven, so you'll h
 - Eclipse + MRUnit + Maven
 	- https://github.com/onefoursix/mrunit-example
 
+# TODOs
+
+ - Use Maven task for Ant: https://maven.apache.org/ant-tasks/installation.html
+ - Try other versions of Hadoop
+ - Try debug of MR job from Eclipse
+
 # License
 
     Copyright 2013 (C) Horacio G. de Oro - hgdeoro@gmail.com
