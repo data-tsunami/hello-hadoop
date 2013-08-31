@@ -5,13 +5,15 @@ Hello World Hadoop project... Eclipse + Maven + unit tests
 
 # Project files & dirs
 
-- */conf*: config to be used for running MR on the cluster
-- */conf-local*: config to be used for running MR locally
-- */hadoop-1.2.0*: Hadoop binaries (recomended WITHOUT conf/ dir, to avoid mistakes)
+- _/conf_: config to be used for running MR on the cluster
+- _/conf-local_: config to be used for running MR locally
+- _/hadoop-1.2.0_: Hadoop binaries (recomended WITHOUT conf/ dir, to avoid mistakes)
 
 To setup files on /conf directory, you can use `core-site.xml.sample` and `mapred-site.xml.sample` as reference.
 
-# Run the MR job locally
+# Before running
+
+Before running the MR jobs you need to build the JAR and generate some data.
 
 ### Build the jar
 
@@ -20,6 +22,12 @@ To setup files on /conf directory, you can use `core-site.xml.sample` and `mapre
 ### Generate sample data
 
 	$ find /usr/share/doc > /tmp/MYDATA.txt
+
+# Run the MR job locally using Ant
+
+From Eclipse, run the `launch-local.xml` as an Ant script. By default the task `launch-local` is used, which does _not_ clean the output directory. You can use the `clean-and-launch` task to clean the output directory before the launch of the MR job.
+
+# Run the MR job locally from CLI
 
 ### Run locally
 
