@@ -8,7 +8,7 @@ import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mrunit.mapreduce.MapDriver;
 import org.junit.Test;
 
-import ar.com.datatsunami.hellohadoop.MyFirstMapper;
+import ar.com.datatsunami.hellohadoop.HelloMapper;
 
 public class SimpleMapperTest {
 
@@ -18,7 +18,7 @@ public class SimpleMapperTest {
 	@Test
 	public void processLine() throws IOException {
 		MapDriver<LongWritable, Text, Text, IntWritable> mapDriver = new MapDriver<LongWritable, Text, Text, IntWritable>();
-		mapDriver.withMapper(new MyFirstMapper());
+		mapDriver.withMapper(new HelloMapper());
 		mapDriver.addInput(new LongWritable(0), new Text(val1));
 		mapDriver.addInput(new LongWritable(1), new Text(""));
 		mapDriver.addInput(new LongWritable(2), new Text(val2));

@@ -11,7 +11,7 @@ import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.util.Tool;
 import org.apache.hadoop.util.ToolRunner;
 
-public class MyFirstLauncher extends Configured implements Tool {
+public class Launcher extends Configured implements Tool {
 
 	@Override
 	public int run(String[] args) throws Exception {
@@ -24,8 +24,8 @@ public class MyFirstLauncher extends Configured implements Tool {
 		FileOutputFormat.setOutputPath((JobConf) job.getConfiguration(),
 				new Path(args[1]));
 
-		job.setMapperClass(MyFirstMapper.class);
-		job.setReducerClass(MyFirstReducer.class);
+		job.setMapperClass(HelloMapper.class);
+		job.setReducerClass(HelloReducer.class);
 
 		job.setOutputKeyClass(Text.class);
 		job.setOutputValueClass(IntWritable.class);
@@ -34,7 +34,7 @@ public class MyFirstLauncher extends Configured implements Tool {
 	}
 
 	public static void main(String[] args) throws Exception {
-		int exitCode = ToolRunner.run(new MyFirstLauncher(), args);
+		int exitCode = ToolRunner.run(new Launcher(), args);
 		System.exit(exitCode);
 	}
 }

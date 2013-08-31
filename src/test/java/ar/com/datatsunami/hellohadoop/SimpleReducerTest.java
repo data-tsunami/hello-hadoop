@@ -9,14 +9,14 @@ import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mrunit.mapreduce.ReduceDriver;
 import org.junit.Test;
 
-import ar.com.datatsunami.hellohadoop.MyFirstReducer;
+import ar.com.datatsunami.hellohadoop.HelloReducer;
 
 public class SimpleReducerTest {
 
 	@Test
 	public void processLine() throws IOException {
 		ReduceDriver<Text, IntWritable, Text, IntWritable> reduceDriver = new ReduceDriver<Text, IntWritable, Text, IntWritable>();
-		reduceDriver.withReducer(new MyFirstReducer());
+		reduceDriver.withReducer(new HelloReducer());
 
 		List<IntWritable> list = new ArrayList<IntWritable>();
 		list.add(new IntWritable(1));
