@@ -58,83 +58,24 @@ From Eclipse, run the `launch-local.xml` as an Ant script. By default the task `
 ### Setup Eclipse classpath using Maven
 
     $ mvn eclipse:eclipse
-    [INFO] Scanning for projects...
-    [INFO]                                                                         
-    [INFO] ------------------------------------------------------------------------
-    [INFO] Building hello-hadoop 0.0.1-SNAPSHOT
-    [INFO] ------------------------------------------------------------------------
-    [INFO] 
-    [INFO] >>> maven-eclipse-plugin:2.9:eclipse (default-cli) @ hello-hadoop >>>
-    [INFO] 
-    [INFO] <<< maven-eclipse-plugin:2.9:eclipse (default-cli) @ hello-hadoop <<<
-    [INFO] 
-    [INFO] --- maven-eclipse-plugin:2.9:eclipse (default-cli) @ hello-hadoop ---
-    [INFO] Using Eclipse Workspace: /home/horacio/workspace-hadoop
-    [INFO] Adding default classpath container: org.eclipse.jdt.launching.JRE_CONTAINER
-    [INFO] Wrote settings to /home/horacio/workspace-hadoop/hello-hadoop/.settings/org.eclipse.jdt.core.prefs
-    [INFO] File /home/horacio/workspace-hadoop/hello-hadoop/.project already exists.
-           Additional settings will be preserved, run mvn eclipse:clean if you want old settings to be removed.
-    [INFO] Wrote Eclipse project for "hello-hadoop" to /home/horacio/workspace-hadoop/hello-hadoop.
-    [INFO] 
-    [INFO] ------------------------------------------------------------------------
-    [INFO] BUILD SUCCESS
-    [INFO] ------------------------------------------------------------------------
-    [INFO] Total time: 2.973s
-    [INFO] Finished at: Sat Aug 31 10:14:56 ART 2013
-    [INFO] Final Memory: 7M/238M
-    [INFO] ------------------------------------------------------------------------
 
 ### Hadoop sources for use in Eclipse (doesn't works)
 
 To download the Hadoop sources or javadocs DOESN'T WORKS with Maven, so you'll have to setup in Eclipse by yourself.
 
 	$ mvn dependency:sources -DincludeGroupIds=org.apache.hadoop 
-	[INFO] Scanning for projects...
-	[INFO]
-	[INFO] ========================================================================
-	[INFO] Building hadoop-hello-hadoop-01 0.0.1-SNAPSHOT
-	[INFO] ========================================================================
-	[INFO] 
-	[INFO] === maven-dependency-plugin:2.1:sources (default-cli) @ hadoop-hello-hadoop-01 ===
-	[INFO] 
-	[INFO] The following files have been resolved:
-	[INFO]    none
-	[INFO] 
+	(...)
 	[INFO] The following files were skipped:
 	[INFO]    org.apache.hadoop:hadoop-core:java-source:sources:1.2.0
 	[INFO]    org.apache.hadoop:hadoop-test:java-source:sources:1.2.0
-	[INFO] 
-	[INFO] ========================================================================
-	[INFO] BUILD SUCCESS
-	[INFO] ========================================================================
-	[INFO] Total time: 2.291s
-	[INFO] Finished at: Sat Aug 24 15:47:47 ART 2013
-	[INFO] Final Memory: 7M/238M
-	[INFO] ========================================================================
+	(...)
 
 	$ mvn dependency:resolve -DincludeGroupIds=org.apache.hadoop -Dclassifier=javadoc 
-	[INFO] Scanning for projects...
-	[INFO]
-	[INFO] ========================================================================
-	[INFO] Building hadoop-hello-hadoop-01 0.0.1-SNAPSHOT
-	[INFO] ========================================================================
-	[INFO] 
-	[INFO] === maven-dependency-plugin:2.1:resolve (default-cli) @ hadoop-hello-hadoop-01 ===
-	[INFO] 
-	[INFO] The following files have been resolved:
-	[INFO]    none
-	[INFO] 
+	(...)
 	[INFO] The following files have NOT been resolved:
 	[INFO]    org.apache.hadoop:hadoop-core:java-source:javadoc:1.2.0
 	[INFO]    org.apache.hadoop:hadoop-test:java-source:javadoc:1.2.0
-	[INFO] 
-	[INFO] ========================================================================
-	[INFO] BUILD SUCCESS
-	[INFO] ========================================================================
-	[INFO] Total time: 2.388s
-	[INFO] Finished at: Sat Aug 24 15:50:08 ART 2013
-	[INFO] Final Memory: 7M/238M
-	[INFO] ========================================================================
+	(...)
 
 # Web resources
 
@@ -167,6 +108,7 @@ To download the Hadoop sources or javadocs DOESN'T WORKS with Maven, so you'll h
  - Use Maven task for Ant: https://maven.apache.org/ant-tasks/installation.html
  - Try other versions of Hadoop
  - Try debug of MR job from Eclipse
+ - Try to find a way to attach Hadoop sources to Eclipse
 
 # License
 
