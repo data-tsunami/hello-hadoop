@@ -15,34 +15,39 @@ To setup files on /conf directory, you can use `core-site.xml.sample` and `mapre
 
 ### Build the jar
 
-	$ mvn package
+	$ mvn clean package
+
+### Generate sample data
+
+	$ find /usr/share/doc > /tmp/MYDATA.txt
 
 ### Run locally
 
-	$ ./hadoop-1.2.0/bin/hadoop --config conf-local jar hadoop-hello-hadoop-01-0.0.1-SNAPSHOT.jar \
-		ar.com.hgdeoro.hellohadoop01.MyFirstLauncher \
-		file:///tmp/MYDATA.txt \
-		file:///tmp/OUTPUT
+	$ ./hadoop-1.2.0/bin/hadoop --config conf-local jar hello-hadoop-0.0.1-SNAPSHOT.jar \
+		ar.com.datatsunami.hellohadoop.Launcher file:///tmp/MYDATA.txt file:///tmp/OUTPUT
 
 # Run the MR job in the cluster
 
 ### Build the jar
 
-	$ mvn package
+	$ mvn clean package
 
 ### Copy the data to HDFS
 
-	$ ./hadoop-1.2.0/bin/hadoop --config conf fs -copyFromLocal MYDATA.txt /
+	$ ./hadoop-1.2.0/bin/hadoop --config conf fs -copyFromLocal /tmp/MYDATA.txt /
 
 ### Launch!
 
-	$ ./hadoop-1.2.0/bin/hadoop --config conf jar hadoop-hello-hadoop-01-0.0.1-SNAPSHOT.jar ar.com.hgdeoro.hellohadoop01.MyFirstLauncher /MYDATA.txt /OUTPUT
+	$ ./hadoop-1.2.0/bin/hadoop --config conf jar hello-hadoop-0.0.1-SNAPSHOT.jar \
+		ar.com.datatsunami.hellohadoop.Launcher /MYDATA.txt /OUTPUT
 
 ### See the output directory:
 
 	$ ./hadoop-1.2.0/bin/hadoop --config conf fs -ls /OUTPUT
 
-# Setup Eclipse classpath using Maven
+# Some Maven recipes
+
+### Setup Eclipse classpath using Maven
 
     $ mvn eclipse:eclipse
     [INFO] Scanning for projects...
@@ -71,7 +76,7 @@ To setup files on /conf directory, you can use `core-site.xml.sample` and `mapre
     [INFO] Final Memory: 7M/238M
     [INFO] ------------------------------------------------------------------------
 
-# Hadoop sources for use in Eclipse (doesn't works)
+### Hadoop sources for use in Eclipse (doesn't works)
 
 To download the Hadoop sources or javadocs DOESN'T WORKS with Maven, so you'll have to setup in Eclipse by yourself.
 
