@@ -99,6 +99,7 @@ To download the Hadoop sources or javadocs DOESN'T WORKS with Maven, so you'll h
 
 - Get source jar files attached to Eclipse for Maven-managed dependencies
     - http://stackoverflow.com/questions/310720/get-source-jar-files-attached-to-eclipse-for-maven-managed-dependencies
+    - To download always: http://stackoverflow.com/questions/5780758/maven-always-download-sources-and-javadocs
 
 - Eclipse + MRUnit + Maven
 	- https://github.com/onefoursix/mrunit-example
