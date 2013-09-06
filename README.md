@@ -114,6 +114,7 @@ To download the Hadoop sources or javadocs DOESN'T WORKS with Maven, so you'll h
     + https://issues.apache.org/jira/browse/MAPREDUCE-4035
     + http://stackoverflow.com/questions/12551977/repository-for-hadoop-stable-release-with-sources
     + https://github.com/apache/hadoop-common/pull/8
+    + Possible workaround: https://maven.apache.org/plugins/maven-install-plugin/examples/installing-secondary-artifacts.html
 
 # License
 
