@@ -7,7 +7,7 @@ Hello World Hadoop project... Eclipse + Maven + unit tests
 
 - _/conf_: config to be used for running MR on the cluster
 - _/conf-local_: config to be used for running MR locally
-- _/hadoop-1.2.0_: Hadoop binaries (recomended WITHOUT conf/ dir, to avoid mistakes)
+- _/hadoop-1.2.1_: Hadoop binaries (recomended WITHOUT conf/ dir, to avoid mistakes)
 
 To setup files on /conf directory, you can use `core-site.xml.sample` and `mapred-site.xml.sample` as reference.
 
@@ -31,7 +31,7 @@ From Eclipse, run the `launch-local.xml` as an Ant script. By default the task `
 
 ### Run locally
 
-	$ ./hadoop-1.2.0/bin/hadoop --config conf-local jar hello-hadoop-0.0.1-SNAPSHOT.jar \
+	$ ./hadoop-1.2.1/bin/hadoop --config conf-local jar hello-hadoop-0.0.1-SNAPSHOT.jar \
 		ar.com.datatsunami.hellohadoop.Launcher file:///tmp/MYDATA.txt file:///tmp/OUTPUT
 
 # Run the MR job in the cluster
@@ -42,16 +42,16 @@ From Eclipse, run the `launch-local.xml` as an Ant script. By default the task `
 
 ### Copy the data to HDFS
 
-	$ ./hadoop-1.2.0/bin/hadoop --config conf fs -copyFromLocal /tmp/MYDATA.txt /
+	$ ./hadoop-1.2.1/bin/hadoop --config conf fs -copyFromLocal /tmp/MYDATA.txt /
 
 ### Launch!
 
-	$ ./hadoop-1.2.0/bin/hadoop --config conf jar hello-hadoop-0.0.1-SNAPSHOT.jar \
+	$ ./hadoop-1.2.1/bin/hadoop --config conf jar hello-hadoop-0.0.1-SNAPSHOT.jar \
 		ar.com.datatsunami.hellohadoop.Launcher /MYDATA.txt /OUTPUT
 
 ### See the output directory:
 
-	$ ./hadoop-1.2.0/bin/hadoop --config conf fs -ls /OUTPUT
+	$ ./hadoop-1.2.1/bin/hadoop --config conf fs -ls /OUTPUT
 
 # Some Maven recipes
 
@@ -76,6 +76,26 @@ To download the Hadoop sources or javadocs DOESN'T WORKS with Maven, so you'll h
 	[INFO]    org.apache.hadoop:hadoop-core:java-source:javadoc:1.2.0
 	[INFO]    org.apache.hadoop:hadoop-test:java-source:javadoc:1.2.0
 	(...)
+
+### Workaround: generate sources jar and install to local Maven repository
+
+First, you'll need to generate the jar with the sources, and then:
+
+    $ mvn org.apache.maven.plugins:maven-install-plugin:2.5:install-file \
+        -Dfile=hadoop-1.2.1-custom-sources.jar \
+        -DgroupId=org.apache.hadoop \
+        -DartifactId=hadoop-core \
+        -Dversion=1.2.1 \
+        -Dpackaging=jar \
+        -Dclassifier=sources
+
+I needed to remove a file from my local repository:
+
+    $ rm ~/.m2/repository/org/apache/hadoop/hadoop-core/1.2.1/hadoop-core-1.2.1-sources.jar-not-available
+
+The sources will be available to Eclipse after running:
+
+    $ mvn eclipse:eclipse
 
 # Web resources
 

@@ -5,7 +5,7 @@
 *.war
 *.ear
 /target
-/hadoop-1.2.0-src.zip
 /conf/core-site.xml
 /conf/mapred-site.xml
-/hadoop-1.2.0
+/hadoop-1.2.1
+*~

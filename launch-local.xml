@@ -13,7 +13,7 @@
 	</target>
 
 	<target name="launch-local">
-		<exec executable="./hadoop-1.2.0/bin/hadoop">
+		<exec executable="./hadoop-1.2.1/bin/hadoop">
 			<arg value="--config" />
 			<arg value="conf-local" />
 			<arg value="jar" />
