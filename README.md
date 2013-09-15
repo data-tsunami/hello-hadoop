@@ -3,7 +3,7 @@ hello-hadoop
 
 Hello World Hadoop project... Eclipse + Maven + unit tests
 
-# Project files & dirs
+## Project files & dirs
 
 - _/conf_: config to be used for running MR on the cluster
 - _/conf-local_: config to be used for running MR locally
@@ -11,55 +11,55 @@ Hello World Hadoop project... Eclipse + Maven + unit tests
 
 To setup files on /conf directory, you can use `core-site.xml.sample` and `mapred-site.xml.sample` as reference.
 
-# Before running
+## Before running
 
 Before running the MR jobs you need to build the JAR and generate some data.
 
-### Build the jar
+#### Build the jar
 
 	$ mvn clean package
 
-### Generate sample data
+#### Generate sample data
 
 	$ find /usr/share/doc > /tmp/MYDATA.txt
 
-# Run the MR job locally using Ant
+## Run the MR job locally using Ant
 
 From Eclipse, run the `launch-local.xml` as an Ant script. By default the task `launch-local` is used, which does _not_ clean the output directory. You can use the `clean-and-launch` task to clean the output directory before the launch of the MR job.
 
-# Run the MR job locally from CLI
+## Run the MR job locally from CLI
 
-### Run locally
+#### Run locally
 
 	$ ./hadoop-1.2.1/bin/hadoop --config conf-local jar hello-hadoop-0.0.1-SNAPSHOT.jar \
 		ar.com.datatsunami.hellohadoop.Launcher file:///tmp/MYDATA.txt file:///tmp/OUTPUT
 
-# Run the MR job in the cluster
+## Run the MR job in the cluster
 
-### Build the jar
+#### Build the jar
 
 	$ mvn clean package
 
-### Copy the data to HDFS
+#### Copy the data to HDFS
 
 	$ ./hadoop-1.2.1/bin/hadoop --config conf fs -copyFromLocal /tmp/MYDATA.txt /
 
-### Launch!
+#### Launch!
 
 	$ ./hadoop-1.2.1/bin/hadoop --config conf jar hello-hadoop-0.0.1-SNAPSHOT.jar \
 		ar.com.datatsunami.hellohadoop.Launcher /MYDATA.txt /OUTPUT
 
-### See the output directory:
+#### See the output directory:
 
 	$ ./hadoop-1.2.1/bin/hadoop --config conf fs -ls /OUTPUT
 
-# Some Maven recipes
+## Some Maven recipes
 
-### Setup Eclipse classpath using Maven
+#### Setup Eclipse classpath using Maven
 
     $ mvn eclipse:eclipse
 
-### Hadoop sources for use in Eclipse (doesn't works)
+#### Hadoop sources for use in Eclipse (doesn't works)
 
 To download the Hadoop sources or javadocs DOESN'T WORKS with Maven, so you'll have to setup in Eclipse by yourself.
 
@@ -77,7 +77,7 @@ To download the Hadoop sources or javadocs DOESN'T WORKS with Maven, so you'll h
 	[INFO]    org.apache.hadoop:hadoop-test:java-source:javadoc:1.2.0
 	(...)
 
-### Workaround: generate sources jar and install to local Maven repository
+#### Workaround: generate sources jar and install to local Maven repository
 
 First, you'll need to generate the jar with the sources, and then:
 
@@ -97,9 +97,9 @@ The sources will be available to Eclipse after running:
 
     $ mvn eclipse:eclipse
 
-# Web resources
+## Web resources
 
-## Eclipse + Hadoop
+### Eclipse + Hadoop
 
 - http://www.thecloudavenue.com/search/label/gettingstarted
 
@@ -115,7 +115,7 @@ The sources will be available to Eclipse after running:
 
 - http://comments.gmane.org/gmane.comp.java.hadoop.mapreduce.user/10598
 
-## Maven / Eclipse m2e
+### Maven / Eclipse m2e
 
 - Get source jar files attached to Eclipse for Maven-managed dependencies
     - http://stackoverflow.com/questions/310720/get-source-jar-files-attached-to-eclipse-for-maven-managed-dependencies
@@ -124,7 +124,7 @@ The sources will be available to Eclipse after running:
 - Eclipse + MRUnit + Maven
 	- https://github.com/onefoursix/mrunit-example
 
-# TODOs
+## TODOs
 
  - Use Maven task for Ant: https://maven.apache.org/ant-tasks/installation.html
  - Try other versions of Hadoop
@@ -137,7 +137,7 @@ The sources will be available to Eclipse after running:
     + https://github.com/apache/hadoop-common/pull/8
     + Possible workaround: https://maven.apache.org/plugins/maven-install-plugin/examples/installing-secondary-artifacts.html
 
-# License
+## License
 
     Copyright 2013 (C) Horacio G. de Oro - hgdeoro@gmail.com
     
