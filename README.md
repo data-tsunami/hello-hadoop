@@ -129,7 +129,7 @@ The sources will be available to Eclipse after running:
  - Use Maven task for Ant: https://maven.apache.org/ant-tasks/installation.html
  - Try other versions of Hadoop
  - Try debug of MR job from Eclipse
- - Try to find a way to attach Hadoop sources to Eclipse
+ - Try to find a way to attach Hadoop sources to Eclipse (workaround found using `mvn install:install-file`)
     + https://issues.apache.org/jira/browse/HADOOP-8363
     + https://issues.apache.org/jira/browse/HADOOP-8498
     + https://issues.apache.org/jira/browse/MAPREDUCE-4035
